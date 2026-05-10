@@ -6,3 +6,43 @@ html,body{
     max-width: 350px;
     padding: 1rem;
 }
+
+nav{
+    background: linear-gradient(to left, #fb7185, #a21caf, #6366f1);
+}
+
+/* Cadastrar */
+nav .btn-primary {
+    background-color: blueviolet;
+    border-color: blueviolet;
+    color: #fff;
+}
+
+/* Editar */
+nav .btn-warning {
+    background-color: blueviolet;
+    border-color: blueviolet;
+    color: #fff;
+}
+
+/* Deletar */
+nav .btn-danger {
+    background-color: blueviolet;
+    border-color: blueviolet;
+    color: #fff;
+}
+
+nav .btn-primary:hover {
+    background-color: #fb7185;
+    border-color: black;
+}
+
+nav .btn-warning:hover {
+    background-color: #fb7185;
+    border-color: black;
+}
+
+nav .btn-danger:hover {
+    background-color: #fb7185;
+    border-color: black;
+}
