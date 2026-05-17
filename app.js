@@ -1,5 +1,5 @@
 import { getContatos, criarContato, atualizarContato, deletarContato } from "./contatos.js"
-
+import { preview } from "./previw.js"
 // ─── Tabela de contatos ───────────────────────────────────────────────────────
 
 async function renderizarContatos({ botaoEditar = false, botaoDeletar = false } = {}) {
@@ -167,6 +167,6 @@ function initDeletar() {
 
 const pagina = window.location.pathname.split("/").pop()
 
-if (pagina === "index.html") initCadastrar()
-else if (pagina === "editar.html")   initEditar()
-else if (pagina === "deletar.html")  initDeletar()
+if (pagina === "index.html" || pagina === "" || pagina === "/") initCadastrar()
+else if (pagina === "editar.html")  initEditar()
+else if (pagina === "deletar.html") initDeletar()
