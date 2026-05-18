@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Gerenciar Contatos</title>
+</head>
+<body class="bg-body-tertiary" style="padding-top: 70px;">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark w-100 fixed-top">
+        <div class="container-fluid justify-content-center">
+            <span class="navbar-brand mb-0 h5">Contatos</span>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+
+        <!-- ─── Formulário de cadastro ──────────────────────────────── -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-12 col-md-6 col-lg-5">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="text-center mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" fill="currentColor"
+                                class="bi bi-person-circle text-secondary" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                <path fill-rule="evenodd"
+                                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                            </svg>
+                            <h2 class="h5 mt-2 mb-0">Cadastrar Contato</h2>
+                        </div>
+
+                        <form id="form-cadastro">
+                            <div class="mb-2">
+                                <label for="cad-nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="cad-nome" placeholder="Nome completo" required/>
+                            </div>
+                            <div class="mb-2">
+                                <label for="cad-telefone" class="form-label">Telefone</label>
+                                <input type="tel" class="form-control" id="cad-telefone" placeholder="(11) 99999-9999" required/>
+                            </div>
+                            <div class="mb-2">
+                                <label for="cad-email" class="form-label">E-mail</label>
+                                <input type="email" class="form-control" id="cad-email" placeholder="exemplo@email.com" required/>
+                            </div>
+                            <div class="mb-2">
+                                <label for="cad-endereco" class="form-label">Endereço</label>
+                                <input type="text" class="form-control" id="cad-endereco" placeholder="Rua, número" required/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cad-cidade" class="form-label">Cidade</label>
+                                <input type="text" class="form-control" id="cad-cidade" placeholder="Ex. São Paulo" required/>
+                            </div>
+                            <div class="preview-container">
+                        <input id="preview-input" class="preview-input" type="file" accept="image/*">
+                        <label class="preview-label" for="preview-input"></label>
+                        <img id="preview-image" class="preview-image" src="./images/upload.svg">
+                    </div>
+                            <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── Lista de contatos em cards ─────────────────────────── -->
+        <h2 class="h5 mb-3">Contatos cadastrados</h2>
+        <div id="lista-contatos" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
+            <div class="col">
+                <p class="text-secondary">Carregando contatos...</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ─── Modal de edição ────────────────────────────────────────── -->
+    <div class="modal fade" id="modal-editar" tabindex="-1" aria-labelledby="modal-editar-label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-editar-label">
+                        Editando contato <span id="titulo-id" class="badge bg-warning text-dark ms-1"></span>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-editar" novalidate>
+                        <input type="hidden" id="contato-id"/>
+                        <div class="mb-2">
+                            <label for="edit-nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="edit-nome" required/>
+                        </div>
+                        <div class="mb-2">
+                            <label for="edit-telefone" class="form-label">Telefone</label>
+                            <input type="tel" class="form-control" id="edit-telefone" required/>
+                        </div>
+                        <div class="mb-2">
+                            <label for="edit-email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="edit-email" required/>
+                        </div>
+                        <div class="mb-2">
+                            <label for="edit-endereco" class="form-label">Endereço</label>
+                            <input type="text" class="form-control" id="edit-endereco" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-cidade" class="form-label">Cidade</label>
+                            <input type="text" class="form-control" id="edit-cidade" required/>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-outline-secondary flex-fill" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-warning flex-fill">Salvar alterações</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmQqHvvXhcPJTXzTwfKQ7JRQY" crossorigin="anonymous"></script>
+    <script type="module" src="/app.js"></script>
+</body>
+</html>

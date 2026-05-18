@@ -5,72 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <title>Cadastrar Contato</title>
+    <title>Login</title>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-login {
+            width: 100%;
+            max-width: 360px;
+        }
+    </style>
 </head>
-<body class="bg-body-tertiary" style="padding-top: 70px;">
-    <main class="w-100 m-auto form-container">
+<body class="bg-body-tertiary">
 
-        <!-- Navegação -->
-    <nav class="navbar navbar-dark bg-dark w-100 fixed-top">
-        <div class="container-fluid justify-content-center gap-4">
-            <a href="index.html"   class="btn btn-primary">Cadastrar</a>
-            <a href="editar.html"  class="btn btn-warning">Editar</a>
-            <a href="deletar.html" class="btn btn-danger">Deletar</a>
+    <div class="card shadow card-login">
+        <div class="card-body p-4">
+
+            <div class="text-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" fill="currentColor"
+                    class="bi bi-person-circle text-secondary" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path fill-rule="evenodd"
+                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                </svg>
+                <h1 class="h4 mt-2 fw-semibold mb-0">Login</h1>
+            </div>
+
+            <form action="cadastro.html" method="get">
+                <div class="mb-3">
+                    <label for="usuario" class="form-label">Usuário</label>
+                    <input type="text" class="form-control" id="usuario"
+                        placeholder="Digite seu usuário" required autofocus/>
+                </div>
+                <div class="mb-4">
+                    <label for="senha" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="senha"
+                        placeholder="••••••••" required/>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 py-2">Entrar</button>
+            </form>
+
         </div>
-    </nav>
-
-        <!-- Formulário de cadastro -->
-        <form id="form-cadastro">
-            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-            </svg>
-            <h1 class="h3 mb-3 fw-normal">Cadastrar Contato</h1>
-
-            <div>
-                <label for="input-nome">Nome</label>
-                <input type="text" class="form-control" id="input-nome" placeholder="Nome" required/>
-            </div>
-            <div>
-                <label for="input-telefone">Telefone</label>
-                <input type="tel" class="form-control" id="input-telefone" placeholder="(11) 99999-9999" required/>
-            </div>
-            <div>
-                <label for="input-email">E-mail</label>
-                <input type="email" class="form-control" id="input-email" placeholder="exemplo@email.com" required/>
-            </div>
-            <div>
-                <label for="input-endereco">Endereço</label>
-                <input type="text" class="form-control" id="input-endereco" placeholder="Endereço" required/>
-            </div>
-            <div>
-                <label for="input-cidade">Cidade</label>
-                <input type="text" class="form-control" id="input-cidade" placeholder="Ex. São Paulo" required/>
-            </div>
-
-            <div class="preview-container">
-                <input id="preview-input" class="preview-input" type="file" accept="image/*">
-                <label class="preview-label" for="preview-input"></label>
-                <img id="preview-image" class="preview-image" src="./images/upload.svg">
-
-            </div>
-
-            <button type="submit" class="btn btn-primary w-100 py-2 mt-3">Cadastrar</button>
-        </form>
-
-        <!-- Lista de contatos -->
-        <section class="w-100 m-auto form-container">
-            <h2 class="h5 mb-3">Contatos cadastrados</h2>
-            <div id="lista-contatos">
-                <p class="text-secondary">Carregando contatos...</p>
-            </div>
-        </section>
-
-    </main>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmQqHvvXhcPJTXzTwfKQ7JRQY" crossorigin="anonymous"></script>
-    <script type="module" src="/app.js" defer></script>
 </body>
 </html>
